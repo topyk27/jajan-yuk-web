@@ -1,17 +1,20 @@
 <main>
     <div class="flex flex-col justify-center items-center h-screen px-4">
-        <img src="../assets/images/jajan-big.png" class="max-w-screen-sm object-cover">
+        <img src="../../../assets/images/jajan-big.png" class="max-w-screen-sm object-cover">
+        <!-- <img src="../assets/images/jajan-big.png" class="max-w-screen-sm object-cover"> -->
 
         <div class="relative mt-5">
             <h2 class="text-3xl text-white font-bold text-center">Habiskan uang mu dengan <span
                     class="text-secondary-200">Jajan Yuk</span></h2>
-            <img src="/assets/images/path.png"
+            <!-- <img src="/assets/images/path.png"
+                class="object-contain w-[60px] h-[15px] absolute -bottom-2 right-1 hidden md:block"> -->
+            <img src="../../../assets/images/path.png"
                 class="object-contain w-[60px] h-[15px] absolute -bottom-2 right-1 hidden md:block">
         </div>
 
         <p class="text-sm font-pregular text-gray-100 mt-7 text-center">Orang yang suka makan adalah orang yang bahagia
         </p>
 
-        <app-custom-button title="Oke gas" containerStyles="w-full mt-7" (handlePress)="signIn()"></app-custom-button>
+        <app-custom-button class="pb-6" title="Oke gas" containerStyles="w-full mt-7" (handlePress)="signIn()"></app-custom-button>
     </div>
 </main>
