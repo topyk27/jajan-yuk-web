@@ -19,22 +19,22 @@ export class AppBottombarComponent implements OnInit {
     this.model = [
       {
         label: 'Home',
-        icon: '../assets/icons/home.svg',
+        icon: 'assets/icons/home.svg',
         routerLink: ['/main'],
       },
       {
         label: 'Bookmark',
-        icon: '../assets/icons/bookmark.png',
+        icon: 'assets/icons/bookmark.png',
         routerLink: ['/bookmark'],
       },
       {
         label: 'Create',
-        icon: '../assets/icons/plus.png',
+        icon: 'assets/icons/plus.png',
         routerLink: ['/create'],
       },
       {
         label: 'Profile',
-        icon: '../assets/icons/profile.png',
+        icon: 'assets/icons/profile.png',
         routerLink: ['/profile'],
       },
     ];
