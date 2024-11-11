@@ -1,0 +1,8 @@
+<button
+    class="w-screen md:w-auto px-6 opacity-70 bg-secondary rounded-xl min-h-[62px] justify-center items-center {{containerStyles}} {{isLoading ? 'opacity-50' : ''}}"
+    [disabled]="isLoading" (click)="onClick()">
+    <div class="flex flex-row justify-center items-center space-x-1">
+        <img *ngIf="icon" [src]="icon" class="object-contain w-10 h-10">
+        <strong class="text-primary font-psemibold text-lg {{textStyles}}">{{title}}</strong>
+    </div>
+</button>

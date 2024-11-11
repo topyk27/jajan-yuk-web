@@ -1,0 +1,84 @@
+<div class="flex flex-col items-center my-6 px-4 pb-12 space-y-6">
+    <div class="justify-between items-start flex flex-row mb-6 w-full">
+        <div>
+            <p class="font-pmedium text-sm text-gray-100">Mau makan apa hari ini kak</p>
+            <p class="text-2xl font-psemibold text-white">USERNAME</p>
+        </div>
+        <div class="mt-1.5">
+            <img src="../assets/icons/burger.png" class="w-9 h-10 object-contain">
+        </div>
+    </div>
+    <div class="w-full h-16 bg-black-100 rounded-2xl focus:border-secondary items-center flex-row">
+        <input type="text" placeholder="Cari makanan"
+            class="text-base text-white w-full font-pregular rounded-2xl h-16 px-4 bg-transparent border-none"
+            (keydown.enter)="search($event)">
+
+    </div>
+    <div class="w-full flex-1 pt-5 pb-8">
+        <p class="text-gray-500 text-lg font-pregular">Trending Posts</p>
+        <div class="carousel carousel-center bg-neutral rounded-[35px] space-x-4 p-4">
+            @for(trend of trendingPosts; track $index){
+            <div class="carousel-item">
+                <img [src]="trend.image"
+                    class="rounded-[35px] w-52 h-72 md:w-80 md:h-96 my-5 overflow-hidden shadow-lg shadow-black/40 object-cover" />
+            </div>
+            }
+        </div>
+    </div>
+    @if(allPosts.length > 0) {
+    <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4" #postList>
+        @for(p of allPosts; track $index){
+        <div class="flex flex-col md:flex-row flex-wrap items-center px-4 mb-14">
+
+            <div class="w-full flex flex-row gap-3 items-start">
+                <div class="justify-center items-center flex flex-row flex-1">
+                    <div
+                        class="w-[46px] h-[46px] rounded-lg border border-secondary-100 justify-center items-center p-0.5">
+                        <div class="w-full relative justify-center items-center">
+                            <img [src]="p.creator.avatar" class="w-[46px] h-[46px] rounded-lg object-cover">
+                        </div>
+                    </div>
+                    <div class="justify-center flex flex-col flex-1 ml-3 gap-y-1">
+                        <p class="text-white font-psemibold text-sm text-wrap">{{p.title}}</p>
+                        <p class="text-xs text-gray-100 font-pregular text-wrap">{{p.creator.username}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-60 md:h-96 rounded-xl mt-3 relative justify-center items-center">
+                <img [src]="p.image" class="w-full h-full rounded-xl mt-3 object-cover">
+            </div>
+        </div>
+        }
+    </div>
+    <div class="flex pb-20">
+        <!-- Previous Button -->
+        <a (click)="prev()"
+            class="cursor-pointer flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 5H1m0 0 4 4M1 5l4-4" />
+            </svg>
+            Previous
+        </a>
+        <a (click)="next()"
+            class="cursor-pointer flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            Next
+            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg>
+        </a>
+    </div>
+    }
+    @else {
+    <div class="flex flex-col justify-center items-center px-4  pb-20">
+        <img src="../assets/images/empty.png" class="w-[270px] h-[215px] object-contain">
+        <p class="text-2xl font-psemibold text-white mt-2">Belum ada yang posting</p>
+        <p class="font-pmedium text-sm text-gray-100">Atau mau kamu yang buat</p>
+        <app-custom-button title="Yuk" containerStyles="w-full my-5" (handlePress)="buat()"></app-custom-button>
+    </div>
+    }
+
+</div>

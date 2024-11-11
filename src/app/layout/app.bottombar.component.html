@@ -1,0 +1,18 @@
+<div class="border-b border-gray-200 dark:border-gray-700" style="background-color: #161122;">
+    <ul class="flex -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400 justify-center"
+        data-tabs-active-clasess="bg-yellow-600">
+        <ng-container *ngFor="let item of model; let i = index;">
+            <li class="me-2">
+                <button
+                    class="flex flex-col items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray hover:border-secondary-100 dark:group-hover:text-gray-300 {{activeLink == item.routerLink ? 'bg-yellow-800' : ''}}"
+                    type="button" role="tab" aria-controls="home" aria-selected="false"
+                    (click)="arahkanDong(item.routerLink[0])">
+                    <img [src]="item.icon" class="w-8 mx-3">
+                    {{item.label}}
+                </button>
+            </li>
+        </ng-container>
+
+
+    </ul>
+</div>
