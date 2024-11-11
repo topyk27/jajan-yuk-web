@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:jajan-yuk-web": "node dist/jajan-yuk-web/server/server.mjs"
+    "serve:ssr:jajan-yuk-web": "node dist/jajan-yuk-web/server/server.mjs",
+    "buildgh": "ng build --output-path docs --base-href /jajan-yuk-web/"
   },
   "private": true,
   "dependencies": {
